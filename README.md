@@ -1,6 +1,6 @@
-# Discovery News Demo [![Build Status](https://travis-ci.org/watson-developer-cloud/discovery-nodejs.svg?branch=master)](https://travis-ci.org/watson-developer-cloud/discovery-nodejs)
+# Discovery Demo
 
-The IBM Watson [Discovery][service_url] service helps you add a cognitive search and content analytics engine to applications to identify patterns, trends and actionable insights that drive better decision-making.
+Use the IBM Watson [Discovery][service_url] service to add a cognitive search and content analytics engine to your applications to identify patterns, trends and actionable insights that drive better decision-making.
 
 ![Demo](readme-images/demo.gif)
 
@@ -39,7 +39,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
   cf service-key my-discovery-service myKey
   ```
 
-1. Using the credentials from the previous step, retrieve the `environment_id` from the list of environments:
+1. Use the credentials that are returned in step 5 to retrieve the IBM curated News `environment_id` from the list of environments:
 
   ```none
   curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery-experimental/api/v1/environments?version=2016-11-07
@@ -66,7 +66,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
     }]
   }
   ```
-1. Retrieve the `collection_id` from the list of collections and using the `environment_id` from the previous step:
+1. Use the `environment_id` from step 6 to retrieve the IBM curated News `collection_id` from the list of collections:
 
   ```none
   curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery-experimental/api/v1/environments/bb6ffe96-53d5-44b3-8838-922d4665df8d/collections?version=2016-11-07
@@ -90,12 +90,12 @@ Demo: https://discovery-news-demo.mybluemix.net/
     ]
   }
   ```
-1. Create a `.env` file in the root directory by copying the sample `.env.example` file using the following command:
+1. Create an `.env` file in the root directory by copying the sample `.env.example` file using the following command:
 
   ```none
   cp .env.example .env
   ```
-  You will update the `.env` with the information you retrieved in steps 5 to 7.
+  Update the `.env` with your service instace information, your `environment_id`, and your `collection_id` that you retrieved in steps 5 to 7.
 
   The `.env` file will look something like the following:
 
@@ -109,7 +109,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
   DISCOVERY_COLLECTION=<collection>
   ```
 
-1. Install the dependencies you application need:
+1. Install the needed application dependencies with this command:
 
   ```none
   npm install
@@ -123,13 +123,13 @@ Demo: https://discovery-news-demo.mybluemix.net/
 
 1. Point your browser to [http://localhost:3000](http://localhost:3000).
 
-1. **Optional:** Push the application to Bluemix:
+1. When you're ready, push the application to Bluemix with this command:
 
   ```none
   cf push
   ```
 
-After completing the steps above, you are ready to test your application. Start a browser and enter the URL of your application.
+After completing these steps, you are ready to test your application. Start a browser and enter the URL of your application.
 
             <your application name>.mybluemix.net
 
@@ -139,13 +139,13 @@ For more details about developing applications that use Watson Developer Cloud s
 
 ## Troubleshooting
 
-* The main source of troubleshooting and recovery information is the Bluemix log. To view the log, run the following command:
+* The main source of troubleshooting and recovery information is the Bluemix log. To view the log, run this command:
 
   ```sh
   cf logs <application-name> --recent
   ```
 
-* For more details about the service, see the [documentation][docs] for the Text to Speech service.
+* For more details about the service, see the [documentation][docs] for the Discovery service.
 
 
 ----
