@@ -23,7 +23,7 @@ Fetcher.prototype.queryPath = function queryPath(queryId) {
   const pFilter = `filter=enrichedTitle.text:Patents,taxonomy:(label:law%20govt%20and%20politics),${pPubDate}`;
   const oFilter = `filter=taxonomy:(label:education),entities:(text:Barack%20Obama,type:person),${oPubDate}`;
   const wFilter = `filter=taxonomy:(label:sports),enrichedTitle.text:wearable,${wPubDate}`;
-  const cFilter = `filter=enrichedTitle.text:Cognitive%20Computing,${cPubDate}`;
+  const cFilter = `filter=enrichedTitle.text:"Cognitive%20Computing",${cPubDate}`;
 
   const mcReturn = 'return=enrichedTitle.text,url,enrichedTitle.docSentiment,publicationDate';
   const wcReturn = 'return=enrichedTitle.text,url,author,entities,concepts,taxonomy';
