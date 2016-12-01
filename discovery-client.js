@@ -12,10 +12,10 @@ Fetcher.prototype.queryPath = function queryPath(queryId) {
   const versionCount = 'version=2016-11-09&count=10';
 
   const sushiPubDate = `publicationDate.date%3E%3D${moment().subtract(40, 'days').format('YYYYMMDD')}`;
-  const mcPubDate = `publicationDate.date%3E%3D${moment().subtract(30, 'days').format('YYYYMMDD')}`;
+  const mcPubDate = `publicationDate.date%3E%3D${moment().subtract(60, 'days').format('YYYYMMDD')}`;
   const pPubDate = `publicationDate.date%3E%3D${moment().subtract(90, 'days').format('YYYYMMDD')}`;
   const oPubDate = `publicationDate.date%3E%3D${moment().subtract(7, 'days').format('YYYYMMDD')}`;
-  const wPubDate = `publicationDate.date%3E%3D${moment().subtract(30, 'days').format('YYYYMMDD')}`;
+  const wPubDate = `publicationDate.date%3E%3D${moment().subtract(60, 'days').format('YYYYMMDD')}`;
   const cPubDate = `publicationDate.date%3E%3D${moment().subtract(90, 'days').format('YYYYMMDD')}`;
 
   const sushiFilter = `filter=taxonomy:(label:food%20and%20drink),enrichedTitle.text:sushi,${sushiPubDate}`;
