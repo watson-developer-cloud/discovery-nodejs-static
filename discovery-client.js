@@ -77,7 +77,6 @@ Fetcher.prototype.fieldParams = function fieldParams(queryId) {
 
   const today = moment().format('MM/DD/YYYY');
   const sevenDaysAgo = moment().subtract(7, 'days').format('MM/DD/YYYY');
-  const thirtyDaysAgo = moment().subtract(30, 'days').format('MM/DD/YYYY');
   const sixtyDaysAgo = moment().subtract(30, 'days').format('MM/DD/YYYY');
   const fourtyDaysAgo = moment().subtract(40, 'days').format('MM/DD/YYYY');
   const ninetyDaysAgo = moment().subtract(90, 'days').format('MM/DD/YYYY');
