@@ -18,7 +18,7 @@ Fetcher.prototype.queryPath = function queryPath(queryId) {
   const wPubDate = `publicationDate.date%3E%3D${moment().subtract(60, 'days').format('YYYYMMDD')}`;
   const cPubDate = `publicationDate.date%3E%3D${moment().subtract(90, 'days').format('YYYYMMDD')}`;
 
-  const english = 'language:english'
+  const english = 'language:english';
 
   const sushiFilter = `filter=taxonomy:(label:food%20and%20drink),enrichedTitle.text:sushi,${sushiPubDate},${english}`;
   const mFilter = `filter=enrichedTitle.text:Men%27s,taxonomy:(label:shopping),${mcPubDate},${english}`;
