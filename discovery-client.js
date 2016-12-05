@@ -18,12 +18,14 @@ Fetcher.prototype.queryPath = function queryPath(queryId) {
   const wPubDate = `publicationDate.date%3E%3D${moment().subtract(60, 'days').format('YYYYMMDD')}`;
   const cPubDate = `publicationDate.date%3E%3D${moment().subtract(90, 'days').format('YYYYMMDD')}`;
 
-  const sushiFilter = `filter=taxonomy:(label:food%20and%20drink),enrichedTitle.text:sushi,${sushiPubDate}`;
-  const mFilter = `filter=enrichedTitle.text:Men%27s,taxonomy:(label:shopping),${mcPubDate}`;
-  const pFilter = `filter=enrichedTitle.text:Patents,taxonomy:(label:law%20govt%20and%20politics),${pPubDate}`;
-  const oFilter = `filter=taxonomy:(label:education),entities:(text:Barack%20Obama,type:person),${oPubDate}`;
-  const wFilter = `filter=taxonomy:(label:sports),enrichedTitle.text:wearable,${wPubDate}`;
-  const cFilter = `filter=enrichedTitle.text:"Cognitive%20Computing",${cPubDate}`;
+  const english = 'language:english';
+
+  const sushiFilter = `filter=taxonomy:(label:food%20and%20drink),enrichedTitle.text:sushi,${sushiPubDate},${english}`;
+  const mFilter = `filter=enrichedTitle.text:Men%27s,taxonomy:(label:shopping),${mcPubDate},${english}`;
+  const pFilter = `filter=enrichedTitle.text:Patents,taxonomy:(label:law%20govt%20and%20politics),${pPubDate},${english}`;
+  const oFilter = `filter=taxonomy:(label:education),entities:(text:Barack%20Obama,type:person),${oPubDate},${english}`;
+  const wFilter = `filter=taxonomy:(label:sports),enrichedTitle.text:wearable,${wPubDate},${english}`;
+  const cFilter = `filter=enrichedTitle.text:"Cognitive%20Computing",${cPubDate},${english}`;
 
   const mcReturn = 'return=enrichedTitle.text,url,enrichedTitle.docSentiment,publicationDate';
   const wcReturn = 'return=enrichedTitle.text,url,author,entities,concepts,taxonomy';
