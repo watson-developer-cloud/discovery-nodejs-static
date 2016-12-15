@@ -60,7 +60,7 @@ export default React.createClass({
             mentions and the raw JSON responses.
           </p>
           <div className="input">
-            <h3 className="base--h3">Select a dataset to view output</h3>
+            <h3 className="base--h3">Select a query to view output</h3>
             <div className="input--data-selection">
               <RadioGroup
                 name="input-name"

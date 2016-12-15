@@ -34,7 +34,7 @@ function Layout(props) {
           repository="https://github.com/watson-developer-cloud/discovery-nodejs"
           documentation="http://www.ibm.com/watson/developercloud/doc/discovery"
           apiReference="http://www.ibm.com/watson/developercloud/discovery/api"
-          version="Experimental"
+          version="GA"
           description={DESCRIPTION}
         />
         <div id="root">
