@@ -6,9 +6,9 @@ const Fetcher = function fetcher() {
 };
 
 Fetcher.prototype.queryPath = function queryPath(queryId) {
-  const environmentId = process.env.DISCOVERY_ENVIRONMENT || '6d8cc198-9269-4757-bb31-3beae346d17a';
-  const collectionId = process.env.DISCOVERY_COLLECTION || 'cad19f12-9ace-42d2-a5c8-a8c46da43ce1';
-  const baseQuery = `/discovery-experimental/api/v1/environments/${environmentId}/collections/${collectionId}/query`;
+  const environmentId = process.env.DISCOVERY_ENVIRONMENT || 'eeb606be-b79a-442b-8612-68ff81d8e46f';
+  const collectionId = process.env.DISCOVERY_COLLECTION || 'e5c88c17-a12d-4403-bf70-fa76ef0cd97e';
+  const baseQuery = `/discovery/api/v1/environments/${environmentId}/collections/${collectionId}/query`;
   const versionCount = 'version=2016-11-09&count=10';
 
   const sushiPubDate = `publicationDate.date%3E%3D${moment().subtract(40, 'days').format('YYYYMMDD')}`;
