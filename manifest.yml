@@ -1,7 +1,7 @@
 declared-services:
   my-discovery:
     label: discovery
-    plan: standard
+    plan: free
 applications:
   - name: discovery-news-demo
     command: npm start
