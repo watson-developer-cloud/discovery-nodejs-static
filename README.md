@@ -34,7 +34,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
 1. Create and retrieve service keys to access the [Discovery][service_url] service:
 
   ```none
-  cf create-service discovery open_experimental my-discovery-service
+  cf create-service discovery free my-discovery-service
   cf create-service-key my-discovery-service myKey
   cf service-key my-discovery-service myKey
   ```
@@ -42,7 +42,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
 1. Use the credentials that are returned in step 5 to retrieve the IBM curated News `environment_id` from the list of environments:
 
   ```none
-  curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery-experimental/api/v1/environments?version=2016-11-07
+  curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2016-11-07
   ```
 
   Output:
@@ -69,7 +69,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
 1. Use the `environment_id` from step 6 to retrieve the IBM curated News `collection_id` from the list of collections:
 
   ```none
-  curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery-experimental/api/v1/environments/bb6ffe96-53d5-44b3-8838-922d4665df8d/collections?version=2016-11-07
+  curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery/api/v1/environments/bb6ffe96-53d5-44b3-8838-922d4665df8d/collections?version=2016-11-07
   ```
 
   Output:
