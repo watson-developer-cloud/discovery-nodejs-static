@@ -15,13 +15,17 @@ Demo: https://discovery-news-demo.mybluemix.net/
 1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
 
   ```yaml
-  applications:
-  - services:
-    - my-service-instance
-    name: <application-name>
+declared-services:
+  my-discovery:
+    label: discovery
+    plan: free
+applications:
+  - name: discovery-news-demo
     command: npm start
     path: .
     memory: 512M
+    services:
+      - my-discovery-service
   ```
 
 1. Connect to Bluemix with the command line tool.
@@ -69,7 +73,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
 1. Use the `environment_id` from step 6 to retrieve the IBM curated News `collection_id` from the list of collections:
 
   ```none
-  curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery/api/v1/environments/bb6ffe96-53d5-44b3-8838-922d4665df8d/collections?version=2016-11-07
+  curl -X GET -u <username>:<password> https://gateway.watsonplatform.net/discovery/api/v1/environments/<environment_id>/collections?version=2016-11-07
   ```
 
   Output:
@@ -95,7 +99,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
   ```none
   cp .env.example .env
   ```
-  Update the `.env` with your service instace information, your `environment_id`, and your `collection_id` that you retrieved in steps 5 to 7.
+  Update the `.env` with your service instance information, your `environment_id`, and your `collection_id` that you retrieved in steps 5 to 7.
 
   The `.env` file will look something like the following:
 
@@ -105,8 +109,8 @@ Demo: https://discovery-news-demo.mybluemix.net/
 
   DISCOVERY_HOST=gateway.watsonplatform.net
 
-  DISCOVERY_ENVIRONMENT=<environment>
-  DISCOVERY_COLLECTION=<collection>
+  DISCOVERY_ENVIRONMENT=<environment_id>
+  DISCOVERY_COLLECTION=<collection_id>
   ```
 
 1. Install the needed application dependencies with this command:
@@ -115,7 +119,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
   npm install
   ```
 
-1. Start the application locally:
+1. Start the application locally (using Node version 6.0 or greater):
 
   ```none
   npm start
@@ -131,7 +135,7 @@ Demo: https://discovery-news-demo.mybluemix.net/
 
 After completing these steps, you are ready to test your application. Start a browser and enter the URL of your application.
 
-            <your application name>.mybluemix.net
+            <application-name>.mybluemix.net
 
 
 For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
@@ -173,7 +177,7 @@ For more details about developing applications that use Watson Developer Cloud s
 
 ## Contributing
 
-  See [CONTRIBUTING](.github/CONTRIBUTING.md).
+  See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
