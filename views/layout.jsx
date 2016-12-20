@@ -35,6 +35,7 @@ function Layout(props) {
           documentation="http://www.ibm.com/watson/developercloud/doc/discovery"
           apiReference="http://www.ibm.com/watson/developercloud/discovery/api"
           version="GA"
+          startInBluemix="https://console.ng.bluemix.net/registration/?target=/catalog/services/discovery/"
           description={DESCRIPTION}
         />
         <div id="root">
