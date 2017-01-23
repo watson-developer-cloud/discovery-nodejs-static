@@ -29,7 +29,5 @@ describe('express', () => {
     });
   });
 
-  it('404 when page not found', () =>
-    request(app).get('/foo/bar').expect(404)
-  );
+  it('404 when page not found', () => request(app).get('/foo/bar').expect(404));
 });

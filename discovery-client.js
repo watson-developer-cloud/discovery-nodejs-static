@@ -1,5 +1,5 @@
 /* eslint max-len: "off", no-console: "off" */
-const httpTransport = require('https');
+const request = require('request');
 const moment = require('moment');
 
 const Fetcher = function fetcher() {
@@ -99,37 +99,11 @@ Fetcher.prototype.fetchPompipeData = function fetchPompipeData(queryId, callback
   const username = process.env.DISCOVERY_USERNAME;
   const password = process.env.DISCOVERY_PASSWORD;
   const apiHostname = process.env.DISCOVERY_HOST || 'gateway.watsonplatform.net';
-  const responseEncoding = 'utf8';
-  const httpOptions = {
-    hostname: apiHostname,
-    port: '443',
-    path: this.queryPath(queryId),
-    method: 'GET',
-    auth: `${username}:${password}`,
-    headers: {},
-  };
-
-  const request = httpTransport.request(httpOptions, (res) => {
-    const responseBufs = [];
-    let responseStr = '';
-
-    res.on('data', (chunk) => {
-      if (Buffer.isBuffer(chunk)) {
-        responseBufs.push(chunk);
-      } else {
-        responseStr += chunk;
-      }
-    }).on('end', () => {
-      responseStr = responseBufs.length > 0 ?
-  Buffer.concat(responseBufs).toString(responseEncoding) : responseStr;
-      callback(null, res.statusCode, res.headers, responseStr);
-    });
-  }).setTimeout(6)
-  .on('error', (error) => {
-    console.log(error, httpOptions.path);
+  const fullUrl = `https://${username}:${password}@${apiHostname}${this.queryPath(queryId)}`;
+  console.log(fullUrl);
+  request(fullUrl, (error, response, body) => {
+    callback(null, response.statusCode, response.headers, body);
   });
-  request.write('');
-  request.end();
 };
 
 module.exports = Fetcher;
