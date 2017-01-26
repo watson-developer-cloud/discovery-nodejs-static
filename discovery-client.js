@@ -23,7 +23,7 @@ Fetcher.prototype.queryPath = function queryPath(queryId) {
   const sushiFilter = `filter=taxonomy:(label:food%20and%20drink),enrichedTitle.text:sushi,${sushiPubDate},${english}`;
   const mFilter = `filter=enrichedTitle.text:Men%27s,taxonomy:(label:shopping),${mcPubDate},${english}`;
   const pFilter = `filter=enrichedTitle.text:Patents,taxonomy:(label:law%20govt%20and%20politics),${pPubDate},${english}`;
-  const oFilter = `filter=taxonomy:(label:education),entities:(text:Barack%20Obama,type:person),${oPubDate},${english}`;
+  const oFilter = `filter=taxonomy:(label:education,score>0.5),entities:(text:Donald%20Trump,type:person),${oPubDate},${english}`;
   const wFilter = `filter=taxonomy:(label:sports),enrichedTitle.text:wearable,${wPubDate},${english}`;
   const cFilter = `filter=enrichedTitle.text:"Cognitive%20Computing",${cPubDate},${english}`;
 
@@ -86,7 +86,7 @@ Fetcher.prototype.fieldParams = function fieldParams(queryId) {
   const fields = {
     mens_clothing: fieldGen(`${sixtyDaysAgo} - ${today}`, 'Men\'s', 'anywhere', 'Any', 'Shopping', 'Title'),
     patents: fieldGen(`${ninetyDaysAgo} - ${today}`, 'Patents', 'anywhere', 'Any', 'Law, Government and Politics', 'Body'),
-    obama: fieldGen(`${sevenDaysAgo} - ${today}`, 'Barack Obama', 'as a Person', 'Any', 'Education', 'Title'),
+    obama: fieldGen(`${sevenDaysAgo} - ${today}`, 'Donald Trump', 'as a Person', 'Any', 'Education', 'Title'),
     wearables_in_sport: fieldGen(`${sixtyDaysAgo} - ${today}`, 'wearables', 'anywhere', 'Any', 'Sports', 'Title'),
     sushi: fieldGen(`${fourtyDaysAgo} - ${today}`, 'Sushi', 'anywhere', 'Any', 'Food and Drink', 'Title'),
     cognitive_computing: fieldGen(`${ninetyDaysAgo} - ${today}`, 'Cognitive Computing', 'anywhere', 'Any', 'Any', 'Title'),
