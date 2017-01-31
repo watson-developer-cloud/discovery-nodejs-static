@@ -10,7 +10,7 @@ import QueryIcons from './query-icons.jsx';
 const QUERIES = [
   { id: 'wearables_in_sport', text: 'Wearables used in sports', icon: 'watch' },
   { id: 'cognitive_computing', text: 'Articles about cognitive computing', icon: 'cognitive' },
-  { id: 'obama', text: 'President\'s involvement in education', icon: 'education' },
+  { id: 'obama', text: 'College ranking articles', icon: 'education' },
   { id: 'patents', text: 'Latest info about Patent law', icon: 'gavel' },
   { id: 'mens_clothing', text: 'Men\'s clothing sales', icon: 'sale' },
   { id: 'sushi', text: 'Latest trends in the Sushi business', icon: 'sushi' },
